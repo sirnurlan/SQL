@@ -1,0 +1,14 @@
+SELECT * FROM emp
+
+SELECT * FROM dept
+
+CREATE TABLE stores 
+(
+  store_id number not null,
+  city     varchar(50)
+);
+
+SELECT * FROM stores
+
+--OUTPUT :
+-- no data found( it means the table is created)

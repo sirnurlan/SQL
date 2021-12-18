@@ -1,0 +1,17 @@
+-- Analytical Functions
+SELECT * FROM employees;
+--Syntax
+
+--Analytic-Function(Column1,Column2,....) min(salary) OVER( [Query-Partition-Clause][Order-By-Clause][Window-Clause] )
+--Find the average salary of employees department wise along with other details
+
+SELECT department_id,avg(salary) FROM employees GROUP BY department_id;
+SELECT AVG(salary) OVER (PARTITION BY department_id) FROM employees; 
+SELECT AVG(salary) OVER (PARTITION BY department_id),a.* FROM employees a;
+
+--Find the details of most recent joinee from all departments
+SELECT LEAD(hire_date) OVER(PARTITION BY department_id ORDER BY hire_date) as recent_joinee, a.* 
+FROM employees a ORDER BY employee_id,department_id;
+
+
+

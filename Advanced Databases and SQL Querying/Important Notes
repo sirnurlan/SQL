@@ -1,0 +1,8 @@
+-- INTO  
+SELECT name,ListPrice,ListPrice+10 as adjusted_list_price INTO [Production].[Product_2] FROM [Production].[Product]
+
+SELECT * FROM [Production].[Product_2]
+
+SELECT name,ListPrice,ListPrice+10 as adjusted_list_price INTO #tmpname FROM [Production].[Product]
+
+SELECT * FROM #tmpname

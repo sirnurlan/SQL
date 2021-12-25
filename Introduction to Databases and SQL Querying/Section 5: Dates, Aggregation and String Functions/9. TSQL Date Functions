@@ -1,0 +1,17 @@
+--DATES
+--SELECT GETDATE()
+--SELECT GETDATE()-2
+--DATEPART
+--SELECT DATEPART(yyyy,GETDATE()) as YEARNUMBER
+--SELECT DATEPART(mm,GETDATE()) as MONTHNUMBER
+--DATEADD
+--SELECT DATEADD(day,4, GETDATE())
+--SELECT DATEADD(day,4, '7/4/2015')
+--SELECT DATEADD(month,4, GETDATE())
+--SELECT DATEADD(year,4, GETDATE())
+USE AdventureWorks2012
+SELECT TOP 10 * FROM [Production].[WorkOrder]
+
+SELECT workorderid,productid,startdate,enddate,DATEDIFF(day,startdate,enddate) FROM [Production].[WorkOrder]
+
+SELECT DATEADD(dd,-(DATEPART (day,GETDATE())-1),GETDATE())

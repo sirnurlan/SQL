@@ -1,0 +1,60 @@
+CREATE TABLE myemployee (employee_id int,firstname varchar(20), lastname varchar(20))
+
+INSERT INTO myemployee VALUES(1,'Michael','Scott')
+INSERT INTO myemployee VALUES(2,'Pam','Beesly')
+INSERT INTO myemployee VALUES(3,'Dwight','Schrute')
+
+CREATE TABLE mysalary (employeeid INT,salary FLOAT)
+
+INSERT INTO mysalary VALUES(1,10000)
+INSERT INTO mysalary VALUES(2,8000)
+INSERT INTO mysalary VALUES(3,6000)
+
+SELECT * FROM myemployee
+SELECT * FROM mysalary
+
+SELECT e.firstname,e.lastname,s.salary
+FROM myemployee e INNER JOIN mysalary s  ON e.employee_id=s.employeeid
+
+-- left outer join
+CREATE TABLE myphone (employeeid int, phonenumber INT)
+
+INSERT INTO myphone VALUES (1,12313131)
+INSERT INTO myphone VALUES (2,63456463)
+
+SELECT * FROM myemployee
+SELECT * FROM myphone
+
+SELECT * FROM myemployee a LEFT JOIN myphone b
+ON a.employee_id=b.employeeid
+
+-- RIGHT JOINS
+CREATE TABLE myparking (employeeid INT, parkingspot varchar(20))
+
+INSERT INTO myparking VALUES (1,'a1')
+INSERT INTO myparking VALUES (2,'a2')
+
+SELECT * FROM myparking
+SELECT * FROM myemployee
+SELECT * FROM myparking a RIGHT JOIN myemployee b ON a.employeeid=b.employee_id
+
+--FULL OUTER JOIN
+CREATE TABLE mycustomer(customerid INT, customername varchar(20))
+TRUNCATE TABLE mycustomer
+INSERT INTO mycustomer VALUES (1,'RAKESH')
+INSERT INTO mycustomer VALUES (3,'JOHN')
+
+CREATE TABLE myorder (ordernumber INT, ordername varchar(20),customerid INT)
+
+INSERT INTO myorder VALUES (1,'SOMEORDER1',1)
+INSERT INTO myorder VALUES (2,'SOMEORDER2',2)
+INSERT INTO myorder VALUES (3,'SOMEORDER3',7)
+INSERT INTO myorder VALUES (4,'SOMEORDER4',8)
+
+SELECT * FROM mycustomer
+SELECT * FROM myorder
+SELECT * FROM mycustomer a FULL OUTER JOIN myorder b ON a.customerid=b.customerid
+
+SELECT * FROM mycustomer
+SELECT * FROM myorder
+SELECT * FROM mycustomer a CROSS JOIN myorder 

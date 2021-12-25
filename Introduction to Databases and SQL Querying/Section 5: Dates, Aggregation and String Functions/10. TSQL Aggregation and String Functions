@@ -1,0 +1,38 @@
+--SELECT * FROM mysalary
+--SELECT AVG(salary) FROM mysalary
+--SELECT COUNT(salary) FROM mysalary
+--SELECT COUNT(*) FROM mysalary
+--SELECT SUM(salary) FROM mysalary
+--SELECT MIN(salary) FROM mysalary
+--SELECT MAX(salary) FROM mysalary
+
+--MYORDER
+SELECT * FROM myorder
+--CONCAT
+PRINT CONCAT('String1','String2')
+SELECT ordernumber,ordername, CONCAT(ordername,' ',ordername) as CONCATENATEDTEXT FROM myorder
+SELECT ordernumber,ordername, CONCAT(ordername,' ',RAND()) as CONCATENATEDTEXT FROM myorder
+--LEFT
+SELECT ordername,ordernumber, LEFT(ordername,4) FROM myorder
+SELECT ordername,ordernumber, RIGHT(ordername,6) FROM myorder
+
+--SUBSTRING
+SELECT ordernumber,ordername,SUBSTRING(ordername,1,5) FROM myorder
+--LOWERCASE
+SELECT ordernumber,ordername,LOWER(ordername) FROM myorder
+--UPPERCASE
+SELECT ordernumber,ordername,UPPER(ordername) FROM myorder
+--LENGTH
+SELECT ordernumber,ordername,LEN(ordername) FROM myorder
+
+SELECT ordernumber,ordername,
+CONCAT(UPPER(LEFT(ordername,1)),LOWER(SUBSTRING(ordername,2,LEN(ordername)))) 
+FROM myorder
+
+--TRIM
+SELECT  '       Mytext       '
+SELECT LEN('       Mytext       ')
+--LTRIM
+SELECT LTRIM('       Mytext       ')
+SELECT RTRIM('       Mytext       ')
+SELECT LTRIM(RTRIM('       Mytext       '))
